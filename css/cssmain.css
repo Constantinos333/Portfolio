@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(14, 72, 138);
+    color: whitesmoke;
+    border-width: 5px;
+    border-style: ridge;
+    border-color: azure;
+}
+
+a {
+    color: rgb(255, 166, 0);
+    text-decoration: none;
+}
