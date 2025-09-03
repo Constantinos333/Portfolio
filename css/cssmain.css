@@ -52,3 +52,39 @@ a {
 a:hover {
     text-decoration: underline
 }
+
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 20px
+}
+
+section {
+    padding: 28px 0
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background: #11141b;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+    backdrop-filter: saturate(1.2) blur(6px);
+    z-index: 50;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    flex-wrap: wrap
+}
+
+nav a {
+    padding: .45em .8em;
+    border-radius: 10px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, .08);
+    text-decoration: none;
+}
