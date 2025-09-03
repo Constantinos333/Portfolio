@@ -1,3 +1,13 @@
+:root {
+    --bg: #0b0d12;
+    --panel: #11141b;
+    --text: #e6e9ef;
+    --muted: #9aa4b2;
+    --accent: #4f85ff;
+    --radius: 12px;
+    --container: 1100px;
+}
+
 body {
     background-color: rgb(14, 72, 138);
     color: whitesmoke;
@@ -9,4 +19,36 @@ body {
 a {
     color: rgb(255, 166, 0);
     text-decoration: none;
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 .5em
+}
+
+p {
+    margin: 0 0 1em;
+    color: var(--text)
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
 }
