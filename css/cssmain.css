@@ -8,19 +8,6 @@
     --container: 1100px;
 }
 
-body {
-    background-color: rgb(14, 72, 138);
-    color: whitesmoke;
-    border-width: 5px;
-    border-style: ridge;
-    border-color: azure;
-}
-
-a {
-    color: rgb(255, 166, 0);
-    text-decoration: none;
-}
-
 * {
     box-sizing: border-box
 }
@@ -76,15 +63,55 @@ nav {
     display: flex;
     gap: 12px;
     padding: 12px 0;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
-nav a {
-    padding: .45em .8em;
-    border-radius: 10px;
+/* base button */
+.btn {
+    display: inline-block;
+    padding: .7em 1em;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    background: transparent;
+    color: var(--text);
+    transition: background-color .2s ease, color .2s ease,
+        transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
 
-nav a:hover {
-    background: rgba(255, 255, 255, .08);
+/* hover pop */
+.btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
     text-decoration: none;
+}
+
+/* active/current page – persistent pop */
+.btn[aria-current="page"] {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    font-weight: 600;
+    cursor: default;
+}
+
+/* prevent extra jump on hover of the active one */
+.btn[aria-current="page"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+/* focus ring for keyboard users */
+.btn:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 133, 255, .5), 0 4px 10px rgba(0, 0, 0, .3);
+}
+
+/* optional: primary CTA variant (hero etc.) */
+.btn.primary {
+    background: var(--accent);
+    border-color: transparent;
+    color: #fff;
 }
