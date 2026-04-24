@@ -1,12 +1,22 @@
 :root {
-    --bg: #0b0d12;
-    --panel: #11141b;
-    --text: #e6e9ef;
-    --muted: #9aa4b2;
-    --accent: #4f85ff;
+    /* Deep "Ink" blacks for the base */
+    --bg: #0d0e12;
+    --panel: #161a21;
+
+    /* Glowing white for the primary accent (matching the circuit lines) */
+    --accent: #ffffff;
+
+    /* Muted tones for secondary text and borders */
+    --text: #e1e4eb;
+    --muted: #8b949e;
+
+    /* Subtle slate for a "tech" feel */
+    --accent-secondary: #30363d;
+
     --radius: 12px;
     --container: 1100px;
 }
+
 
 * {
     box-sizing: border-box
@@ -14,11 +24,27 @@
 
 body {
     margin: 0;
-    background: var(--bg);
+    /* Path to your image + fallback color from your :root */
+    background: url('../assets/authAndAuditSystem.png') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text);
     font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
     line-height: 1.6;
 }
+
+/* Optional: Add a dark overlay so text pops against the white circuit lines */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 13, 18, 0.7);
+    /* Adjust 0.7 to make it darker or lighter */
+    z-index: -1;
+}
+
 
 h1,
 h2,
@@ -51,13 +77,11 @@ section {
 }
 
 header {
-    position: sticky;
-    top: 0;
-    background: #11141b;
-    border-bottom: 1px solid rgba(255, 255, 255, .06);
-    backdrop-filter: saturate(1.2) blur(6px);
-    z-index: 50;
+    /* ... your other styles ... */
+    background: rgba(17, 20, 27, 0.8);
+    /* 80% opacity */
 }
+
 
 nav {
     display: flex;
@@ -66,54 +90,54 @@ nav {
     flex-wrap: wrap;
 }
 
-/* base button */
+/* Updated base button for a tech look */
+/* --- CLEAN REPLACEMENT FOR ALL BUTTON STYLES --- */
+
 .btn {
     display: inline-block;
-    padding: .7em 1em;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, .12);
-    background: transparent;
+    padding: .7em 1.2em;
+    border-radius: var(--radius);
+    /* Semi-transparent so background shows through */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text);
-    transition: background-color .2s ease, color .2s ease,
-        transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-}
-
-/* hover pop */
-.btn:hover {
-    background: var(--accent);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    /* Light text on dark background */
+    backdrop-filter: blur(4px);
+    transition: all .3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    font-weight: 600;
     text-decoration: none;
 }
 
-/* active/current page – persistent pop */
+/* Hover: Flipped contrast */
+.btn:hover {
+    background: var(--accent);
+    /* Solid White */
+    color: var(--bg);
+    /* Dark text so it's readable */
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+/* Active Page: Flipped contrast */
 .btn[aria-current="page"] {
     background: var(--accent);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
-    font-weight: 600;
+    /* Solid White */
+    color: var(--bg);
+    /* Dark text */
+    font-weight: 700;
     cursor: default;
+    border-color: var(--accent);
 }
 
-/* prevent extra jump on hover of the active one */
-.btn[aria-current="page"]:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
-}
-
-/* focus ring for keyboard users */
-.btn:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(79, 133, 255, .5), 0 4px 10px rgba(0, 0, 0, .3);
-}
-
-/* optional: primary CTA variant (hero etc.) */
+/* Primary Variant: Also needs dark text if background is white */
 .btn.primary {
     background: var(--accent);
+    color: var(--bg);
     border-color: transparent;
-    color: #fff;
 }
 
 .grid {

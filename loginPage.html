@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cssmain.css">
+    <link rel="stylesheet" href="css/loginPage.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <form action="" method="post" class="registerForm" id="registerForm">
+        <label for="username">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="vertical-align: middle; margin-right: 8px;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>Username:
+        </label>
+        <input type="text" name="username" id="username" placeholder="Operator ID" class="form-input">
+
+        <label for="password">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="vertical-align: middle; margin-right: 8px;">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>Password:
+        </label>
+        <input type="password" name="password" id="password" placeholder="Min. 8 chars, 1 symbol" class="form-input">
+
+        <label for="email">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                style="vertical-align: middle; margin-right: 8px;">
+                <polyline points="4 17 10 11 4 5"></polyline>
+                <line x1="12" y1="19" x2="20" y2="19"></line>
+            </svg>Email Address:
+        </label>
+        <input type="email" name="email" id="email" placeholder="example@email.com" class="form-input">
+
+        <button type="submit" id="Login" class="btn primary">Login</button>
+        <div id="showMessage" class="messageBox"></div>
+    </form>
+
+    <script src="/js/loginScript.js"></script>
+</body>
+
+</html>
