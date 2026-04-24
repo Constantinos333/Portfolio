@@ -2,9 +2,7 @@
 ---
 
 ## Progress Journal
-- **Day 0** → Repo setup, Pages deployment  
-- **Day 1** → Semantic HTML skeleton, truthful content, working nav  
-- **Day 2** → Styling foundations (in progress…)  
+
 
 ---
 
