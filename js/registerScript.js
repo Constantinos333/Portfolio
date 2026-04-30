@@ -1,8 +1,8 @@
 // 1. Initialize Global Variables
 const users = [];
 const registerForm = document.getElementById('registerForm');
-let timeoutId;
 
+let timeoutId;
 /**
  * Displays feedback messages to the user
  * @param {string} type - 'error' or 'success'
