@@ -1,5 +1,20 @@
 // 1. Initialize Global Variables
-const users = [];
+const userManager = {
+    users: [],
+
+    addUser(user) {
+        this.users.push(user);
+    },
+
+    findUserByUsername(username) {
+        return this.users.find((user) => user.username === username);
+    },
+
+    checkUsername(username) {
+        return this.findUserByUsername(username) !== undefined;
+    }
+};
+
 const registerForm = document.getElementById('registerForm');
 
 let timeoutId;
@@ -63,21 +78,21 @@ registerForm.addEventListener('submit', function (event) {
         return;
     }
 
-    // Check if username is already taken
-    const existingUser = users.find((user) => user.username === usernameValue);
-    if (existingUser) {
-        showMessage('error', 'This username is already taken.');
+    //if username already exists in userManager: show error message, stop execution
+
+    if (userManager.checkUsername(usernameValue)) {
+        showMessage('error', 'This username is already taken');
         return;
     }
 
     // --- USER CREATION ---
     // If code reaches here, all validations passed!
 
-    const newUser = {
-        id: crypto.randomUUID(),
+    const newUser = {  //new User(usernameValue, passwordValue, emailValue) */ //This will be used once I leaern about classes in OOP JS
         username: usernameValue,
         password: passwordValue,
         email: emailValue,
+        id: crypto.randomUUID(),
         role: 'user',
         failedLoginCount: 0,
         isLocked: false,
@@ -86,10 +101,10 @@ registerForm.addEventListener('submit', function (event) {
     };
 
     // Push into our temporary database
-    users.push(newUser);
+    userManager.addUser(newUser);
 
     // Provide feedback
-    console.log('Current users array:', users);
+    console.log('Current users array:', userManager.users);
     console.log("Newly Created User:", newUser);
 
     // Reset the UI
