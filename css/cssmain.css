@@ -1,38 +1,24 @@
 :root {
-    /* Deep "Ink" blacks for the base */
     --bg: #0d0e12;
-    --panel: #161a21;
-
-    /* Glowing white for the primary accent (matching the circuit lines) */
     --accent: #ffffff;
-
-    /* Muted tones for secondary text and borders */
     --text: #e1e4eb;
     --muted: #8b949e;
-
-    /* Subtle slate for a "tech" feel */
-    --accent-secondary: #30363d;
-
     --radius: 12px;
-    --container: 1100px;
 }
 
-
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    /* Path to your image + fallback color from your :root */
     background: url('../assets/authAndAuditSystem.png') no-repeat center center fixed;
     background-size: cover;
     color: var(--text);
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+    font-family: system-ui, sans-serif;
     line-height: 1.6;
 }
 
-/* Optional: Add a dark overlay so text pops against the white circuit lines */
 body::before {
     content: "";
     position: fixed;
@@ -41,150 +27,45 @@ body::before {
     width: 100%;
     height: 100%;
     background: rgba(11, 13, 18, 0.7);
-    /* Adjust 0.7 to make it darker or lighter */
     z-index: -1;
 }
 
-
-h1,
-h2,
-h3 {
-    margin: 0 0 .5em
+/* SHARED INPUT STYLES */
+input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    outline: none;
+    padding: 12px 15px;
+    border-radius: 8px;
+    width: 100%;
+    color: white;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
 }
 
-p {
-    margin: 0 0 1em;
-    color: var(--text)
+input:focus {
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
-a {
-    color: var(--accent);
-    text-decoration: none
-}
-
-a:hover {
-    text-decoration: underline
-}
-
-.container {
-    max-width: var(--container);
-    margin: 0 auto;
-    padding: 0 20px
-}
-
-section {
-    padding: 28px 0
-}
-
-header {
-    /* ... your other styles ... */
-    background: rgba(17, 20, 27, 0.8);
-    /* 80% opacity */
-}
-
-
-nav {
-    display: flex;
-    gap: 12px;
-    padding: 12px 0;
-    flex-wrap: wrap;
-}
-
-/* Updated base button for a tech look */
-/* --- CLEAN REPLACEMENT FOR ALL BUTTON STYLES --- */
-
+/* SHARED BUTTONS */
 .btn {
     display: inline-block;
     padding: .7em 1.2em;
     border-radius: var(--radius);
-    /* Semi-transparent so background shows through */
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.05);
     color: var(--text);
-    /* Light text on dark background */
     backdrop-filter: blur(4px);
     transition: all .3s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85rem;
     font-weight: 600;
-    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
 }
 
-/* Hover: Flipped contrast */
 .btn:hover {
     background: var(--accent);
-    /* Solid White */
     color: var(--bg);
-    /* Dark text so it's readable */
     transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-}
-
-/* Active Page: Flipped contrast */
-.btn[aria-current="page"] {
-    background: var(--accent);
-    /* Solid White */
-    color: var(--bg);
-    /* Dark text */
-    font-weight: 700;
-    cursor: default;
-    border-color: var(--accent);
-}
-
-/* Primary Variant: Also needs dark text if background is white */
-.btn.primary {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: transparent;
-}
-
-.grid {
-    display: grid;
-    gap: 16px
-}
-
-.grid.cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr))
-}
-
-.grid.cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr))
-}
-
-@media (max-width:980px) {
-
-    .grid.cols-3,
-    .grid.cols-2 {
-        grid-template-columns: 1fr
-    }
-}
-
-.card {
-    background: #151a23;
-    border: 1px solid rgba(255, 255, 255, .08);
-    border-radius: var(--radius);
-    padding: 16px;
-}
-
-.card h3 {
-    margin: 0 0 6px
-}
-
-.card p {
-    color: var(--muted)
-}
-
-footer {
-    padding: 32px 0 48px;
-    text-align: center;
-    color: var(--muted);
-    font-size: .95rem;
-    border-top: 1px solid rgba(255, 255, 255, .06);
-    margin-top: 28px;
-}
-
-.muted {
-    color: var(--muted)
 }

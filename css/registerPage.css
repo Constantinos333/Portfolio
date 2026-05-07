@@ -1,23 +1,5 @@
-:root {
-    --accent: #ffffff;
-    /* The solid color for the primary button */
-    --bg: #0b0d12;
-    /* The dark background color for button text */
-    --text: #ffffff;
-    /* General text color */
-    --radius: 8px;
-    /* Button corner rounding */
-}
-
+/* Specific Layout for the Register Page */
 body {
-    margin: 0;
-    background: url('../assets/authAndAuditSystem.png') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text, white);
-    /* Fallback to white if var is missing */
-    font-family: system-ui, sans-serif;
-
-    /* Centering logic */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,20 +7,6 @@ body {
     min-height: 100vh;
 }
 
-
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(11, 13, 18, 0.7);
-    /* Adjust 0.7 to make it darker or lighter */
-    z-index: -1;
-}
-
-/* Changed from .regiterForm to .registerForm to match HTML fix */
 .registerForm {
     background: rgba(0, 0, 0, 0.6);
     padding: 30px;
@@ -47,115 +15,15 @@ body::before {
     flex-direction: column;
     width: 100%;
     max-width: 350px;
-    /* Limits size so it stays inside the circle */
-    gap: 10px;
-    /* Adds space between inputs */
-    z-index: 1;
-    /* Keeps it above the background overlay */
     gap: 20px;
-    /* Increase this number for more space everywhere */
-}
-
-label svg {
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
-    opacity: 0.8;
-}
-
-input {
-    /* 1. Reset defaults */
-    background: rgba(255, 255, 255, 0.05);
-    /* Very subtle transparency */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    outline: none;
-
-    /* 2. Fix the size and shape */
-    padding: 12px 15px;
-    /* Gives the text room to breathe */
-    border-radius: 8px;
-    /* Matches your button and form corners */
-    width: 100%;
-    /* Spans the full width of the form */
-    box-sizing: border-box;
-    /* IMPORTANT: keeps padding from pushing box outside form */
-
-    /* 3. Text styling */
-    color: white;
-    font-family: inherit;
-    font-size: 0.9rem;
-
-    /* 4. Effects */
-    backdrop-filter: blur(5px);
-    /* Blurs the background behind the box */
-    transition: all 0.3s ease;
-}
-
-/* 5. Interaction: Glow when you click it */
-input:focus {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
-/* 6. Placeholder color */
-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-}
-
-
-.btn {
-    display: inline-block;
-    padding: .7em 1.2em;
-    border-radius: var(--radius);
-    /* Semi-transparent so background shows through */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
-    color: var(--text);
-    /* Light text on dark background */
-    backdrop-filter: blur(4px);
-    transition: all .3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-/* Hover: Flipped contrast */
-.btn:hover {
-    background: var(--accent);
-    /* Solid White */
-    color: var(--bg);
-    /* Dark text so it's readable */
-    transform: translateY(-3px);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-}
-
-/* Active Page: Flipped contrast */
-.btn[aria-current="page"] {
-    background: var(--accent);
-    /* Solid White */
-    color: var(--bg);
-    /* Dark text */
-    font-weight: 700;
-    cursor: default;
-    border-color: var(--accent);
-}
-
-/* Primary Variant: Also needs dark text if background is white */
-.btn.primary {
-    background: var(--accent);
-    color: var(--bg);
-    border-color: transparent;
+    z-index: 1;
 }
 
 .messageBox {
     visibility: hidden;
     opacity: 0;
     transition: opacity 0.3s;
-    padding: 10px;
-    border-radius: 4px;
-    margin-top: 10px;
+    text-align: center;
 }
 
 .messageBox.show {
@@ -163,14 +31,10 @@ input::placeholder {
     opacity: 1;
 }
 
-/*Error Style*/
-.messageBox.error {
+.error {
     color: red;
-    text-align: center;
 }
 
-/*Success Style*/
-.messageBox.success {
+.success {
     color: green;
-    text-align: center;
 }

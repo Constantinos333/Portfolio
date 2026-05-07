@@ -15,7 +15,7 @@ const userManager = {
     }
 };
 
-const registerForm = document.getElementById('registerForm');
+const registerForm = document.querySelector('.registerForm');
 
 let timeoutId;
 /**
