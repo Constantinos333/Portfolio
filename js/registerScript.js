@@ -1,11 +1,14 @@
+//Grabs Form
 const registerForm = document.querySelector('.registerForm');
 
 let timeoutId;
+
 /**
  * Displays feedback messages to the user
  * @param {string} type - 'error' or 'success'
  * @param {string} message - The text to display
  */
+
 function showMessage(type, message) {
     const messageBox = document.getElementById("showMessage"); // Fixed: Added quotes
 

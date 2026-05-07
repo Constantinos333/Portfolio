@@ -31,10 +31,10 @@ body {
     opacity: 1;
 }
 
-.error {
+.messageBox.error {
     color: red;
 }
 
-.success {
+.messageBox.success {
     color: green;
 }
