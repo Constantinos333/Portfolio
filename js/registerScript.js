@@ -1,20 +1,3 @@
-// 1. Initialize Global Variables
-const userManager = {
-    users: [],
-
-    addUser(user) {
-        this.users.push(user);
-    },
-
-    findUserByUsername(username) {
-        return this.users.find((user) => user.username === username);
-    },
-
-    checkUsername(username) {
-        return this.findUserByUsername(username) !== undefined;
-    }
-};
-
 const registerForm = document.querySelector('.registerForm');
 
 let timeoutId;

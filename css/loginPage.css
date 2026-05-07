@@ -1,0 +1,40 @@
+/* Specific Layout for the Register Page */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.loginForm {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    gap: 20px;
+    z-index: 1;
+}
+
+.messageBox {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    text-align: center;
+}
+
+.messageBox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
