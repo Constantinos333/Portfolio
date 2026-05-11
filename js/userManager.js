@@ -9,11 +9,31 @@ const userManager = {
         localStorage.setItem('users', JSON.stringify(this.users));
     },
 
+    getAllUsers() {
+        return [...this.users];
+    },
+
     findUserByUsername(username) {
         return this.users.find((user) => user.username === username);
     },
 
     checkUsername(username) {
         return this.findUserByUsername(username) !== undefined;
+    },
+
+    findUserById(id) {
+        return this.users.find((user) => user.id === id);
+    },
+
+    updateUser(id, updates) {
+        this.users = this.users.map((user) => {
+            if (user.id === id) {
+                return { ...user, ...updates };
+            }
+            return user;
+        }); //This needs work, as of now it may update UID and TimeStamp which are meant to be immutable
+
+        localStorage.setItem('users', JSON.stringify(this.users));
     }
+
 };
