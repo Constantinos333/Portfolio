@@ -1,3 +1,5 @@
+/*global styles: body, nav, buttons, background, typography*/
+
 :root {
     --bg: #0d0e12;
     --accent: #ffffff;

@@ -1,0 +1,43 @@
+/* Shared page layout */
+
+body {}
+
+.container {}
+
+.page-header {}
+
+.page-header h1 {}
+
+.page-header p {}
+
+.content-card {
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+    margin: 5% 0;
+    background: rgba(11, 13, 18, 0.7);
+    /*
+    width/max-width
+    padding
+    margin
+    background
+    opacity / rgba
+    border-radius
+    border/shadow/backdrop
+    text-color/line-height
+
+    Dark translucent panel
+    padding inside
+    rounded corners
+    limited width
+    */
+}
+
+.content-card h2 {}
+
+.content-card p {
+    /*
+    text-width: 600-850px
+    */
+}
