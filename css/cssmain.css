@@ -58,7 +58,7 @@ input:focus {
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(255, 255, 255, 0.05);
     color: var(--text);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(6px);
     transition: all .3s ease;
     text-transform: uppercase;
     font-weight: 600;
@@ -70,4 +70,9 @@ input:focus {
     background: var(--accent);
     color: var(--bg);
     transform: translateY(-3px);
+}
+
+nav a {
+    text-decoration: none;
+    /*Removes the text decoration from the buttons*/
 }

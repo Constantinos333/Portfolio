@@ -2,21 +2,64 @@
 
 body {}
 
-.container {}
+.container {
+    margin-left: 10%;
+    margin-right: 10%;
+    justify-content: center;
+    align-items: center;
+}
 
-.page-header {}
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-width: 900px;
+    padding: 3rem 2rem;
+    margin: 0 auto;
+}
 
-.page-header h1 {}
 
-.page-header p {}
+
+.page-header {
+    display: flex;
+    /*Turns the container into a flex container.*/
+    justify-content: center;
+    /*Centers content along the main axis.*/
+    align-items: center;
+    /*Centers content along the cross axis.*/
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.45);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    backdrop-filter: blur(6px);
+}
+
+.page-header h1 {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.page-header p {
+    background: rgba(0, 0, 0, 0.45);
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    border-radius: 24px;
+    backdrop-filter: blur(6px);
+    max-width: 720px;
+}
 
 .content-card {
     width: 400px;
     align-items: center;
     justify-content: center;
-    padding: 4em;
-    margin: 5% 0;
-    background: rgba(11, 13, 18, 0.7);
+    padding: 2em;
+    margin: 1% 1%;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 24px;
+    backdrop-filter: blur(6px);
+
     /*
     width/max-width
     padding
