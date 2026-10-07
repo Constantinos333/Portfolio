@@ -2,6 +2,8 @@
 
 This repository hosts my personal engineering portfolio and documents the transition from IT/support and software fundamentals into Electrical & Electronic Engineering.
 
+**Profile:** [GitHub](https://github.com/Constantinos333) · [LinkedIn](https://cy.linkedin.com/in/constantinos-charalampous)
+
 ## Current direction
 
 I am studying Electrical & Electronic Engineering at Frederick University and building toward practical capability in:
@@ -39,6 +41,7 @@ An earlier JavaScript learning project used to practise structured application l
 - CCNA coursework completed (coursework, not certification)
 - IT support / troubleshooting background
 - Manual machining and precision-measurement experience
+- Member of the Cyprus Amateur Radio Society (CARS), preparing for the amateur radio licensing examination
 
 ## Portfolio status
 
