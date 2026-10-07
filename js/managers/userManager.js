@@ -1,16 +1,18 @@
-// 1. Initialize Global Variables
+// Educational client-side state manager.
+//
+// SECURITY NOTE:
+// This remains a browser-only learning prototype, not production authentication.
+// Real authentication should use a trusted server/auth provider, salted password hashing,
+// secure session management, rate limiting, and server-side authorization.
+
 const userManager = {
-    // 1. LOAD: Initialize users from localStorage (if they exist), otherwise use empty array
     users: JSON.parse(localStorage.getItem('users')) || [],
 
-    //CREATE: Accepts the externally-created user object as is
     addUser(user) {
         this.users.push(user);
-        // 2. SAVE: Convert the updated array to a string and save it to localStorage
         localStorage.setItem('users', JSON.stringify(this.users));
     },
 
-    //READ: Returns a new shallow copy of all users
     getAllUsers() {
         return [...this.users];
     },
@@ -27,7 +29,6 @@ const userManager = {
         return this.users.find((user) => user.id === id);
     },
 
-    //UPDATE: Reassigns the array and protects 'id' & 'createdAt'
     updateUser(id, updates) {
         this.users = this.users.map((user) => {
             if (user.id === id) {
@@ -37,12 +38,18 @@ const userManager = {
         });
 
         localStorage.setItem('users', JSON.stringify(this.users));
-        //returns the updated user object
     },
 
-    //DELETE: Reassigns the array to exclude the specific ID
     deleteUser(id) {
-        this.users = this.users.filter(user => user.id !== id);
+        this.users = this.users.filter((user) => user.id !== id);
+        localStorage.setItem('users', JSON.stringify(this.users));
     }
-
 };
+
+async function hashPassword(password) {
+    const encoded = new TextEncoder().encode(password);
+    const digest = await crypto.subtle.digest('SHA-256', encoded);
+    return Array.from(new Uint8Array(digest))
+        .map((byte) => byte.toString(16).padStart(2, '0'))
+        .join('');
+}
