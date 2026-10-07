@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <meta name="description" content="Konstantinos Charalampous — Electrical & Electronic Engineering student building practical experience in RF, SDR, electronics and embedded systems.">
+    <title>Konstantinos Charalampous | Engineering Portfolio</title>
     <link rel="stylesheet" href="css/cssmain.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 
 <body>
     <main class="container">
-        <nav>
+        <nav aria-label="Primary navigation">
             <a class="btn" href="index.html" aria-current="page">Home</a>
             <a class="btn primary" href="html/sections/about.html">About</a>
-            <a class="btn primary" href="html/sections/experience.html">Experience</a>
+            <a class="btn primary" href="html/sections/experience.html">Background</a>
             <a class="btn primary" href="html/sections/skills.html">Skills</a>
             <a class="btn primary" href="html/sections/projects.html">Projects</a>
             <a class="btn primary" href="html/sections/contact.html">Contact</a>
         </nav>
 
-
         <header class="hero">
-            hero intro, big name/title, buttons, image/background
+            <p class="eyebrow">Electrical & Electronic Engineering</p>
+            <h1>Konstantinos Charalampous</h1>
+            <p class="hero-copy">
+                Engineering student building practical capability in RF, microwave systems, antennas,
+                software-defined radio, electronics, PCB design and embedded systems.
+            </p>
+            <div class="hero-actions">
+                <a class="btn primary" href="html/sections/projects.html">View Projects</a>
+                <a class="btn primary" href="html/sections/about.html">Current Direction</a>
+            </div>
         </header>
 
-        <section class="what-i-do">
-            <h2>What I Do</h2>
-            <p>Combining support experience with development skills.</p>
+        <section class="what-i-do" aria-labelledby="focus-heading">
+            <p class="eyebrow">Current focus</p>
+            <h2 id="focus-heading">Learn → Build → Measure → Document</h2>
+            <p>
+                My portfolio is moving toward evidence-backed engineering work: calculations, prototypes,
+                experiments, measurements, revisions and technical documentation.
+            </p>
 
             <div class="what-grid">
-                <article>Problem Solving</article>
-                <article>Full-Stack Development</article>
-                <article>User Support</article>
-                <article>Continuous Learning</article>
+                <article>
+                    <h3>RF & SDR</h3>
+                    <p>Radio signals, spectrum observation, communications, antennas and propagation.</p>
+                </article>
+                <article>
+                    <h3>Electronics</h3>
+                    <p>Circuits, PCB design, instrumentation and practical bench work.</p>
+                </article>
+                <article>
+                    <h3>Embedded Systems</h3>
+                    <p>Developing toward microcontrollers, FPGA and hardware/software integration.</p>
+                </article>
+                <article>
+                    <h3>Engineering Evidence</h3>
+                    <p>Recording what was designed, built, tested and actually measured.</p>
+                </article>
             </div>
         </section>
-
     </main>
-
-    <footer>
-    </footer>
 </body>
-
 </html>
