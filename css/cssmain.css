@@ -1,78 +1,126 @@
-/*global styles: body, nav, buttons, background, typography*/
-
 :root {
-    --bg: #0d0e12;
+    --bg: #090b10;
+    --surface: rgba(17, 21, 31, 0.88);
+    --surface-soft: rgba(255, 255, 255, 0.045);
+    --text: #eef2f7;
+    --muted: #a7b0bd;
+    --border: rgba(255, 255, 255, 0.14);
     --accent: #ffffff;
-    --text: #e1e4eb;
-    --muted: #8b949e;
-    --radius: 12px;
+    --radius: 14px;
 }
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    color-scheme: dark;
+}
+
 body {
     margin: 0;
-    background: url('../assets/authAndAuditSystem.png') no-repeat center center fixed;
-    background-size: cover;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 15% 10%, rgba(67, 93, 136, 0.20), transparent 32rem),
+        radial-gradient(circle at 85% 35%, rgba(75, 112, 101, 0.14), transparent 30rem),
+        var(--bg);
     color: var(--text);
-    font-family: system-ui, sans-serif;
-    line-height: 1.6;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.65;
 }
 
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 11, 15, 0.82);
-    z-index: -1;
+a {
+    color: inherit;
 }
 
-/* SHARED INPUT STYLES */
-input {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    outline: none;
-    padding: 12px 15px;
-    border-radius: 8px;
-    width: 100%;
-    color: white;
-    backdrop-filter: blur(6px);
-    transition: all 0.3s ease;
+.container {
+    width: min(1180px, calc(100% - 2rem));
+    margin: 0 auto;
 }
 
-input:focus {
-    border-color: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .6rem;
+    padding: 1.5rem 0;
 }
 
-/* SHARED BUTTONS */
 .btn {
     display: inline-block;
-    padding: .7em 1.2em;
+    padding: .68rem 1rem;
     border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    background: var(--surface-soft);
     color: var(--text);
-    backdrop-filter: blur(6px);
-    transition: all .3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
+    text-decoration: none;
+    transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    font-weight: 650;
     cursor: pointer;
     text-align: center;
 }
 
-.btn:hover {
-    background: var(--accent);
-    color: var(--bg);
-    transform: translateY(-3px);
+.btn:hover,
+.btn:focus-visible {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 255, 255, 0.28);
+    transform: translateY(-2px);
 }
 
-nav a {
-    text-decoration: none;
-    /*Removes the text decoration from the buttons*/
+.btn[aria-current="page"] {
+    background: var(--text);
+    color: var(--bg);
+}
+
+.eyebrow {
+    margin: 0 0 .45rem;
+    color: var(--muted);
+    font-size: .78rem;
+    font-weight: 750;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.15;
+}
+
+p {
+    max-width: 75ch;
+}
+
+.clean-list {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.clean-list li + li {
+    margin-top: .45rem;
+}
+
+.note,
+.status {
+    color: var(--muted);
+}
+
+.link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+    nav {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: .8rem;
+    }
+
+    nav .btn {
+        white-space: nowrap;
+    }
 }
