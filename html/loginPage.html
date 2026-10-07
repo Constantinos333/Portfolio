@@ -1,40 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Educational browser-only login prototype. Not production authentication.">
     <link rel="stylesheet" href="../css/cssmain.css">
     <link rel="stylesheet" href="../css/loginPage.css">
-    <title>Login Page</title>
+    <title>Educational Login Prototype</title>
 </head>
 
 <body>
-    <form action="" method="post" class="loginForm" id="loginForm">
+    <form class="loginForm" id="loginForm">
+        <p class="demo-warning">
+            Educational browser-only prototype. Do not use a real password.
+        </p>
 
-        <label for="username">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                style="vertical-align: middle; margin-right: 8px;">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>Username:
-        </label>
-        <input type="text" name="username" id="username" placeholder="Operator ID" class="form-input">
+        <label for="username">Username:</label>
+        <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Operator ID"
+            class="form-input"
+            autocomplete="username"
+            required
+        >
 
-        <label for="password">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                style="vertical-align: middle; margin-right: 8px;">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>Password:
-        </label>
-        <input type="password" name="password" id="password" placeholder="********" class="form-input">
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Demo password"
+            class="form-input"
+            autocomplete="current-password"
+            required
+        >
 
-        <button type="submit" id="Login" class="btn primary">Login</button>
-        <div id="showMessage" class="messageBox"></div>
+        <button type="submit" id="loginButton" class="btn primary">Login</button>
+        <div id="showMessage" class="messageBox" role="status" aria-live="polite"></div>
 
+        <a href="../index.html">Return to portfolio</a>
     </form>
+
     <script src="../js/managers/userManager.js"></script>
     <script src="../js/loginScript.js"></script>
 </body>
-
 </html>
