@@ -21,8 +21,12 @@ Software remains an important supporting skill for instrumentation, automation, 
 ### SDR Lab
 A practical RF learning project focused on receiving, observing, and later measuring real radio signals while building understanding of communications, antennas, propagation, and DSP.
 
+Current status: initial lab setup. No physical RF measurements are claimed yet.
+
 ### BuildLedger
 A private product project exploring version control and engineering-evidence tracking for physical engineering builds, tests, measurements, and revisions.
+
+Current status: product specification and architecture planning.
 
 ### Browser authentication/audit prototype
 An earlier JavaScript learning project used to practise structured application logic, validation, CRUD-style state management, and interface design.
@@ -40,6 +44,6 @@ An earlier JavaScript learning project used to practise structured application l
 
 This portfolio is being rebuilt around verifiable engineering work. Projects will increasingly include design decisions, calculations, test methods, measurements, and evidence rather than only screenshots or skill lists.
 
-## License
+## Licensing
 
-Code is provided under the MIT License where applicable. Portfolio content and personal material remain © Konstantinos Charalampous.
+No repository-level license file has been added yet. Unless a file explicitly states otherwise, do not assume that portfolio content, images, or code are licensed for reuse.
