@@ -5,8 +5,17 @@
 // Real authentication should use a trusted server/auth provider, salted password hashing,
 // secure session management, rate limiting, and server-side authorization.
 
+const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+const usersWithoutLegacyPlaintextPasswords = storedUsers.filter(
+    (user) => !Object.prototype.hasOwnProperty.call(user, 'password')
+);
+
+if (usersWithoutLegacyPlaintextPasswords.length !== storedUsers.length) {
+    localStorage.setItem('users', JSON.stringify(usersWithoutLegacyPlaintextPasswords));
+}
+
 const userManager = {
-    users: JSON.parse(localStorage.getItem('users')) || [],
+    users: usersWithoutLegacyPlaintextPasswords,
 
     addUser(user) {
         this.users.push(user);
