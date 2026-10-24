@@ -26,7 +26,14 @@ An early, stationary, non-weaponized camera-acquisition experiment within the pl
 - Visual Studio C++ with OpenCV headers, libraries and runtime binaries configured (development used vcpkg).
 - Compile `Opening Camera.cpp` in a project linking OpenCV core, videoio, and highgui.
 
-**The original Visual Studio solution and project files are not included yet.** They were not present in the connected Engineering-OS Drive folder and have not been shared as files. This folder therefore documents source code, **not a ready-to-build Visual Studio solution**. Local OpenCV paths must be configured on each computer.
+### Project files and directory layout
+
+- `Opening Camera.slnx` — uploaded Visual Studio solution (references `Opening Camera/Opening Camera.vcxproj`).
+- `Opening Camera/Opening Camera.cpp` — user-authored source.
+- `Opening Camera/Opening Camera.vcxproj.filters` — uploaded Visual Studio source filter organization.
+- **Missing:** `Opening Camera/Opening Camera.vcxproj` — the essential C++ project configuration has **not** been uploaded.
+
+The supplied `.vcxproj.user` file contains local user settings and is intentionally excluded from version control. **The solution cannot yet be built from a fresh checkout until the missing `.vcxproj` is included and OpenCV dependencies are configured.** This draft has not been built independently after arranging the uploaded files.
 
 ## Next milestone
 Develop a controlled continuous live-view loop and verify keyboard-triggered exit and cleanup, before starting object detection.
