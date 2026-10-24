@@ -8,12 +8,18 @@ An early, stationary, non-weaponized camera-acquisition experiment within the pl
 3. Acquires up to 10 frames, checking `src.empty()` after each acquisition.
 4. Counts only non-empty captured frames.
 5. Displays the final captured frame using `imshow()` and `waitKey(0)`.
-6. Reports capture failures using a nonzero program exit status.
+6. Exits with a nonzero status if camera initialization or frame capture fails.
 
-## Evidence (user-reported on 24 October 2026)
-The Visual Studio / OpenCV program opened the webcam, printed ten successful frame-acquisition messages, and displayed the final captured image. The camera could still return a non-empty (dark) frame with its physical privacy cover closed.
+## Test evidence (24 October 2026)
 
-**Verification boundary:** The source committed here contains one small correction, using `return -1;` instead of `break;` on a failed frame acquisition, to prevent displaying an empty image. The corrected version has **not yet been recompiled or tested** by the user. No frame-rate, latency, detection, calibration, or reliability measurement is claimed.
+**TESTED — normal capture path (user-run on Windows / Visual Studio):**
+- After changing the failed-frame branch from `break;` to `return -1;`, a Visual Studio `Debug x64` rebuild reported **1 succeeded, 0 failed** (screenshot shared).
+- The camera reported `Camera Opened Successfully`.
+- The console printed **Frame 1** through **Frame 10 Captured Successfully** (screenshot shared).
+- OpenCV reported creating the `Captured Frame` Win32 display window (screenshot shared).
+- The user previously confirmed that the single final frame could be displayed before the error-handling correction.
+
+**NOT VERIFIED:** The screenshots of the corrected build do not directly show the image contents or final exit code. The forced capture-failure path has not been tested. No frame-rate, latency, detection, camera calibration, or reliability measurements are claimed. Optional OpenCV plugin loading warnings did not prevent the successful captures.
 
 ## Setup
 - Windows and webcam.
