@@ -26,15 +26,23 @@ An early, stationary, non-weaponized camera-acquisition experiment within the pl
 - Visual Studio C++ with OpenCV headers, libraries and runtime binaries configured (development used vcpkg).
 - Compile `Opening Camera.cpp` in a project linking OpenCV core, videoio, and highgui.
 
-### Project files and directory layout
+### Visual Studio solution layout
 
-- `Opening Camera.slnx` — uploaded Visual Studio solution (references `Opening Camera/Opening Camera.vcxproj`).
-- `Opening Camera/Opening Camera.cpp` — user-authored source.
-- `Opening Camera/Opening Camera.vcxproj.filters` — uploaded Visual Studio source filter organization.
-- **Missing:** `Opening Camera/Opening Camera.vcxproj` — the essential C++ project configuration has **not** been uploaded.
+- `Opening Camera.slnx` — solution file for Visual Studio.
+- `Opening Camera/Opening Camera.vcxproj` — C++ project configuration (now included).
+- `Opening Camera/Opening Camera.vcxproj.filters` — source organization within Visual Studio.
+- `Opening Camera/Opening Camera.cpp` — source code for the acquisition experiment.
 
-The supplied `.vcxproj.user` file contains local user settings and is intentionally excluded from version control. **The solution cannot yet be built from a fresh checkout until the missing `.vcxproj` is included and OpenCV dependencies are configured.** This draft has not been built independently after arranging the uploaded files.
+The local `.vcxproj.user` file is intentionally excluded because it holds per-user settings.
 
+### Reproducing the development setup
+
+1. Use Visual Studio with the **v145 C++ platform toolset** (as recorded in the original project file) and a suitable Windows SDK. Other toolsets might work if the project is deliberately retargeted, but have not been tested here.
+2. Install vcpkg and OpenCV 4 for the `x64-windows` triplet in classic mode, and enable MSBuild user-wide integration with `vcpkg integrate install`. This integration provides automatic include/link settings and runtime DLL deployment for supported packages.
+3. Ensure the Windows environment variable `VCPKG_ROOT` points to the vcpkg installation directory before launching Visual Studio. The published **Debug|x64** configuration refers to `$(VCPKG_ROOT)\installed\x64-windows\include\opencv4`, rather than the developer's absolute `C:\Users\...` path.
+4. Open `Opening Camera.slnx`, select **Debug | x64**, build, and run with a working webcam.
+
+**Build caveat:** No independent clean-checkout build has been performed with the portable variable-based configuration. Only the user's original local **Debug | x64** configuration and normal capture path have been tested. The other target configurations were retained but not verified, and no `vcpkg.json` dependency manifest or pinned OpenCV version is included.
 ## Next milestone
 Develop a controlled continuous live-view loop and verify keyboard-triggered exit and cleanup, before starting object detection.
 
