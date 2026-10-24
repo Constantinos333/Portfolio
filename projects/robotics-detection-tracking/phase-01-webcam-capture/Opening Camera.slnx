@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Opening Camera/Opening Camera.vcxproj" Id="22a74fbe-18eb-4403-b3c3-6e053e19ae19" />
+</Solution>
