@@ -1,0 +1,21 @@
+# Visual Studio local settings, generated builds and executables
+.vs/
+x64/
+x86/
+Debug/
+Release/
+*.vcxproj.user
+*.suo
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.ipch
+*.tlog
+*.lastbuildstate
+
+# Local dependencies and CMake output
+vcpkg_installed/
+build/
+out/
