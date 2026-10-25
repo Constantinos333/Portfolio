@@ -7,7 +7,7 @@
 
 
 using namespace cv;
-using namespace std; //groups related names together, helping prevent naming conflicts.
+using namespace std; //lets you write cout instead of std::cout
 
 int main() //is a function, a block of instructions that performs a task
 {
@@ -22,20 +22,22 @@ int main() //is a function, a block of instructions that performs a task
 		return -1;
 	}
 
-	int framecount = 0;
-	while (framecount < 10) {
+
+	while (true) {
 		cap >> src;
 		if (src.empty()) {
 			cout << "Error: Could not capture frame" << endl;
 			return -1;
 		}
-		else {
-			cout << "Frame " << ++framecount << " Captured Successfully" << endl;
+		imshow("Captured Frame", src); //Display the captured frame
+			
+		int key = waitKey(1); //Process window events and check for a keypress
+		if (key == 'q') {
+			break; //Exit the loop if 'q' is pressed
 		}
-		
 	}
-	imshow("Captured Frame", src); //Display the captured frame
-	waitKey(0); //Wait for a key press to proceed
-	
+	cap.release();       // Release the webcam
+	destroyAllWindows(); // Close OpenCV windows
+		
 	return 0;
 }
