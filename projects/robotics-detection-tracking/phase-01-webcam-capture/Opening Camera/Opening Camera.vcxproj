@@ -140,7 +140,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CoordinateClassifier.cpp" />
     <ClCompile Include="Opening Camera.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoordinateClassifier.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LEARNING-NOTES.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

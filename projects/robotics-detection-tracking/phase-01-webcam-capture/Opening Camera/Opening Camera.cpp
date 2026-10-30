@@ -1,19 +1,27 @@
-//Opening Camera.cpp 
-
-#include <opencv2/core.hpp> //Provides Mat, which stores your captured image data
-#include <opencv2/videoio.hpp> //Provides VideoCapture for accessing the webcam and retrieving frames
-#include <opencv2/highgui.hpp> //Provides imshow() and waitKey() for displaying images and processing keyboard input
-#include <iostream> //Provides cout and endl for console output
+#include <opencv2/core.hpp>
+#include <opencv2/videoio.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+#include <iostream>
+#include <vector>
+#include "CoordinateClassifier.h"
 
 
 using namespace cv;
-using namespace std; //lets you write cout instead of std::cout
+using namespace std;
 
-int main() //is a function, a block of instructions that performs a task
+int main()
 {
-	Mat src; // Create a matrix to hold the captured frame, Mat is an object that represents an image in OpenCV, src is a variable that will store the captured frame from the camera
-	cv::VideoCapture cap(0); // Open the default camera (camera index 0), videoCapture is a class that provides an interface for capturing video from cameras or video files, cap is a variable that will be used to access the camera and retrieve frames
 
+	//Image Matrices
+	Mat src;
+	Mat hsv;
+	Mat mask;
+
+	//Open the default camera (camera index 0)
+	cv::VideoCapture cap(0);
+
+	//Check Camera Connection
 	if (cap.isOpened()) {
 		cout << "Camera Opened Successfully" << endl;
 	}
@@ -22,22 +30,42 @@ int main() //is a function, a block of instructions that performs a task
 		return -1;
 	}
 
-
 	while (true) {
+		// Capture and validate camera frame
 		cap >> src;
 		if (src.empty()) {
 			cout << "Error: Could not capture frame" << endl;
 			return -1;
 		}
-		imshow("Captured Frame", src); //Display the captured frame
+
+		//Convert the camera frame into a binary mask
+		cvtColor(src, hsv, COLOR_BGR2HSV);
+		inRange(hsv, Scalar(0, 0, 100), Scalar(179, 50, 255), mask);
+
+		// Detect and draw contours around detected regions
+		vector<vector<Point>> contours;
+		findContours(mask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+		drawContours(src, contours, -1, Scalar(0, 0, 255), 2);
+
+		//Calculate Image Center
+		int centerx = src.cols / 2;
+		int centery = src.rows / 2;
+
+		//Display camera frame and detection mask
+		imshow("Captured Frame", src);
+		imshow("Detection Mask", mask);
 			
-		int key = waitKey(1); //Process window events and check for a keypress
+		//Process window events and check for a keypress
+		int key = waitKey(1);
 		if (key == 'q') {
-			break; //Exit the loop if 'q' is pressed
+			break;
 		}
+
 	}
-	cap.release();       // Release the webcam
-	destroyAllWindows(); // Close OpenCV windows
+
+	// Release Camera and Destroy Windows
+	cap.release();
+	destroyAllWindows();
 		
 	return 0;
 }
