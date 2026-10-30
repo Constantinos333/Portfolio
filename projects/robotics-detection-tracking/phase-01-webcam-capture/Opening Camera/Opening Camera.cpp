@@ -45,8 +45,24 @@ int main()
 		// Detect and draw contours around detected regions
 		vector<vector<Point>> contours;
 		findContours(mask, contours, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
-		drawContours(src, contours, -1, Scalar(0, 0, 255), 2);
+		double largestarea = 0.0;
+		int largestindex = -1;
 
+		for (int i = 0; i < static_cast<int>(contours.size()); i++) {
+
+			double area = contourArea(contours[i]);
+
+				if (area > largestarea) {
+					largestarea = area;
+					largestindex = i;
+				}
+
+		}
+
+		if (largestindex >= 0) {
+
+			drawContours(src, contours, largestindex, Scalar(0, 0, 255), 2);
+		}
 		//Calculate Image Center
 		int centerx = src.cols / 2;
 		int centery = src.rows / 2;
@@ -58,6 +74,8 @@ int main()
 		//Process window events and check for a keypress
 		int key = waitKey(1);
 		if (key == 'q') {
+			cout << "Largest area: " << largestarea << endl;
+			cout << "Contour index: " << largestindex << endl;
 			break;
 		}
 
